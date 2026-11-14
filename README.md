@@ -2,6 +2,12 @@
 
 Личный сайт-портфолио: премиальные сайты, лендинги, сайты-визитки, Telegram-боты, редизайн и кастомные скрипты.
 
+## Живой сайт
+
+**https://sitecraft-studio.github.io/dmitry-portfolio/**
+
+Сайт опубликован через GitHub Pages и открывается с любого устройства. Все кнопки «Обсудить проект», «Начать проект», «Связаться со мной», стрелки услуг и отзывов ведут в MAX. Карточки работ открывают модальное окно с описанием проекта и кнопкой «Хочу такой сайт».
+
 ## Локальный запуск
 
 ```powershell
@@ -12,30 +18,29 @@ python app.py
 
 Сайт откроется на `http://127.0.0.1:5001`.
 
-## Публикация на Render
+## Публикация
 
-Проект уже подготовлен для Render:
+### GitHub Pages (основной хостинг)
 
-- `render.yaml` — конфигурация веб-сервиса;
-- `Procfile` — команда запуска `gunicorn app:app`;
-- `requirements.txt` — зависимости Python.
+Сайт статический, поэтому GitHub Pages отдаёт `index.html` напрямую:
 
-Порядок:
+1. Репозиторий: https://github.com/sitecraft-studio/dmitry-portfolio
+2. Settings → Pages → Source: **Deploy from a branch**.
+3. Branch: **main**, folder: **/ (root)**.
+4. После пуша в `main` Pages пересобирается автоматически.
 
-1. Залей репозиторий на GitHub.
-2. Открой [render.com](https://render.com), войди через GitHub.
-3. Нажми **New → Blueprint**, выбери репозиторий.
-4. Render сам прочитает `render.yaml` и запустит сайт.
-5. Получи публичную ссылку вида `https://dmitry-portfolio.onrender.com`.
+### Render (резервный вариант)
 
-На бесплатном тарифе Render сервис засыпает после простоя. Первый запрос после сна может занять 30–60 секунд.
+В репозитории есть `render.yaml`, `Procfile` и `requirements.txt` для запуска Flask на Render. Однако `render.com` может быть недоступен из некоторых сетей (в частности, соединение стабильно таймаутит из текущей сети), поэтому основной площадкой выбран GitHub Pages. При необходимости Render можно подключить через VPN или из другой сети: New → Blueprint → выбрать репозиторий.
 
 ## Структура
 
 ```text
-app.py               Flask-приложение
-templates/index.html сайт (HTML + CSS + JS)
+index.html           сайт (HTML + CSS + JS), его отдаёт GitHub Pages
+app.py               Flask-приложение для локального запуска и Render
 static/img/          фото, иконки и работы
 render.yaml          конфигурация Render
-requirements.txt     зависимости
+Procfile             команда запуска gunicorn
+requirements.txt     зависимости Python
+.nojekyll            отключает обработку Jekyll на GitHub Pages
 ```
