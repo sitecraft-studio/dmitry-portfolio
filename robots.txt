@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sitecraft-studio.github.io/dmitry-portfolio/sitemap.xml

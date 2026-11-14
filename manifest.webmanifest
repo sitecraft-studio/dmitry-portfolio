@@ -1,0 +1,16 @@
+{
+  "name": "SiteCrafting — создание сайтов под ключ",
+  "short_name": "SiteCrafting",
+  "description": "Премиальные сайты, лендинги и сайты-визитки под ключ.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#060504",
+  "theme_color": "#ff8a00",
+  "icons": [
+    {
+      "src": "static/favicon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
